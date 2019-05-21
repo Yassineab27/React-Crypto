@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import "../App/App.css";
 import Coin from "./Coin";
+import Favorite from "./Favorite";
 const cc = require("cryptocompare");
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            coins: null
+            coins: null,
+            favorites: null
         }
     };
 
@@ -16,13 +18,21 @@ class Dashboard extends Component {
     };
 
     fetchCoins = async () => {
-        const coins = (await cc.coinList()).Data
-        console.log(coins);
+        const coins = (await cc.coinList()).Data;
 
         this.setState({
             coins: coins,
-            favorites: null
+            favorites: {}
         })
+    };
+
+    addCoin = (name) => {
+        this.setState(prevState => {
+            return {
+                favorites: {...prevState.favorites, name}
+            }
+        });
+        console.log(this.state.favorites)
     };
 
     render() {
@@ -32,15 +42,23 @@ class Dashboard extends Component {
                 return <Coin coin={coin.CoinName}
                 symbol={coin.Symbol}
                 img={coin.ImageUrl}
+                add={this.addCoin}
                 key={coin.Id}/>
             }) 
         ) : (
-            <h2>Loading..</h2>
+            <h2>
+                <i className="fas fa-spinner fa-spin"></i>
+            </h2>
         )
         const chooseFav = favorites ? (
-            <h3>My favorite Coins</h3>
+            Object.values(favorites).map(favCoin => {
+                return <Favorite coin={favCoin.CoinName}
+                symbol={favCoin.Symbol}
+                img={favCoin.ImageUrl}
+                key={favCoin.Id}/>
+            }) 
         ) : (
-            <p>Please Choose your Coins</p>
+            <p>Please Choose Your Favortie Coins</p>
         )
         return(
             <div className="container Dashboard">

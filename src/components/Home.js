@@ -12,7 +12,7 @@ class Home extends Component {
                         <div className="Select">
                             <p>Track Your Favorite Coins with Ease</p>
                             <Link to="/dashboard">
-                                <button>Select Coins</button>
+                                <button><i className="fab fa-bitcoin"></i> Select Coins</button>
                             </Link>
                         </div>
                     </div>
