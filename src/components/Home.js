@@ -10,7 +10,7 @@ class Home extends Component {
                         <h1>Welcome to React Crypto</h1>
                         <h3>Best Crypto Site Ever</h3>
                         <div className="Select">
-                            <p>Please select your favorite coins.</p>
+                            <p>Track Your Favorite Coins with Ease</p>
                             <Link to="/dashboard">
                                 <button>Select Coins</button>
                             </Link>

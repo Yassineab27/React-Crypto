@@ -1,6 +1,5 @@
 body {
-    background: #f4f4f4;
+    background: linear-gradient(to right, rgba(213, 145, 8, 0.788), rgba(200, 36, 3, 0.74));
     color: #333;
     font-family: 'Do Hyeon', sans-serif;
-    overflow: hidden;
 }
