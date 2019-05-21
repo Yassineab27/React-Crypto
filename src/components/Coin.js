@@ -1,11 +1,16 @@
 import React from "react";
 
 const Coin = (props) => {
-    const { coin, symbol } = props;
+    const { coin, symbol, img } = props;
     return(
         <div className="Coin">
-            <h3>{coin}</h3>
-            <p>{symbol}</p>
+            <div className="Coin-titles">
+                <h3>{coin}</h3>
+                <p>{symbol}</p>
+            </div>
+            <div>
+                <img alt={coin} src={`http://cryptocompare.com/${img}`}/>
+            </div>
         </div>
     )
 };

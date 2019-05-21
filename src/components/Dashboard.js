@@ -31,7 +31,8 @@ class Dashboard extends Component {
             Object.values(coins).slice(0, 100).map(coin => {
                 return <Coin coin={coin.CoinName}
                 symbol={coin.Symbol}
-                key={coin.CoinName}/>
+                img={coin.ImageUrl}
+                key={coin.Id}/>
             }) 
         ) : (
             <h2>Loading..</h2>
