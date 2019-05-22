@@ -39,15 +39,23 @@ class Dashboard extends Component {
         const newCoin = Object.values(coins).find(coin => {
             return coin.CoinName === favCoin;
         });
-        console.log(newCoin)
 
         this.setState({
             favorites: [...favorites, newCoin]
         });
         
-        alert(`${newCoin.CoinName} was added to the favorites!`)
-        console.log(favorites)
+        alert(`${newCoin.CoinName} was added to the favorites!`);
+    };
 
+    deleteCoin = (favCoin) => {
+        this.setState(prevState => {
+            const newFavList = prevState.favorites.filter(fav => {
+                return fav.CoinName !== favCoin
+            });
+            return {
+                favorites: newFavList
+            }
+        });
     };
 
     render() {
@@ -70,10 +78,11 @@ class Dashboard extends Component {
                 return <Favorite coin={favCoin.CoinName}
                 symbol={favCoin.Symbol}
                 img={favCoin.ImageUrl}
+                delete={this.deleteCoin}
                 key={favCoin.Id}/>
             }) 
         ) : (
-            <p className={!coins && "select-fav"}>Please Choose Your Favortie Coins.</p>
+            <p className={coins ? "" : "hidden-text"}>Please Choose Your Favortie Coins.</p>
         )
         return(
             <div className="container Dashboard">
@@ -84,8 +93,8 @@ class Dashboard extends Component {
                         {chooseFav}
                     </div>
                 </div>
-                <div className={this.state.coins ? "coins-list" : "hidden"}>
-                    <h2>Coins List</h2>
+                <div className={this.state.coins && "coins-list"}>
+                    <h2 className={this.state.coins ? "" : "hidden-title"}>Coins List</h2>
                     <div className="dashboard-container">
                         {coinList}
                     </div>

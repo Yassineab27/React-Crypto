@@ -138,6 +138,7 @@
     margin: 2rem 0;
     display: grid;
     grid-gap: 15px;
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     grid-template-columns: repeat(5, 1fr);
     transition: all 0.7s ease;
     padding: 0.5rem 0;
@@ -150,7 +151,8 @@
 }
 
 .hidden h2,
-.select-fav {
+.hidden-text,
+.hidden-title {
     display: none;
 }
 
@@ -204,4 +206,52 @@
 
 .Coin .info-button {
     background: rgba(200, 36, 3, 0.74);
+}
+
+@media screen and (max-width: 1125px) {
+    .dashboard-container,
+    .favorite-coins {
+        margin: 2rem;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(4, 1fr);
+        transition: all 0.7s ease;
+        padding: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 933px) {
+    .dashboard-container,
+    .favorite-coins {
+        margin: 2rem;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(3, 1fr);
+        transition: all 0.7s ease;
+        padding: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .dashboard-container,
+    .favorite-coins {
+        margin: 2rem;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+        transition: all 0.7s ease;
+        padding: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .dashboard-container,
+    .favorite-coins {
+        margin: 2rem;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: 1fr;
+        transition: all 0.7s ease;
+        padding: 0.5rem 0;
+    }
 }
