@@ -9,7 +9,7 @@ class Dashboard extends Component {
         super(props);
         this.state = {
             coins: null,
-            favorites: null
+            favorites: [],
         }
     };
 
@@ -22,17 +22,32 @@ class Dashboard extends Component {
 
         this.setState({
             coins: coins,
-            favorites: {}
         })
     };
 
-    addCoin = (name) => {
-        this.setState(prevState => {
-            return {
-                favorites: {...prevState.favorites, name}
-            }
+    addCoin = (favCoin) => {
+        const { coins, favorites } = this.state;
+
+        const fav = favorites.find(f => {
+            return f.CoinName === favCoin
         });
-        console.log(this.state.favorites)
+
+        if(fav) {
+            return alert("This coin is already in your favorites list!")
+        }
+
+        const newCoin = Object.values(coins).find(coin => {
+            return coin.CoinName === favCoin;
+        });
+        console.log(newCoin)
+
+        this.setState({
+            favorites: [...favorites, newCoin]
+        });
+        
+        alert(`${newCoin.CoinName} was added to the favorites!`)
+        console.log(favorites)
+
     };
 
     render() {
@@ -50,24 +65,30 @@ class Dashboard extends Component {
                 <i className="fas fa-spinner fa-spin"></i>
             </h2>
         )
-        const chooseFav = favorites ? (
-            Object.values(favorites).map(favCoin => {
+        const chooseFav = favorites.length ? (
+            favorites.map(favCoin => {
                 return <Favorite coin={favCoin.CoinName}
                 symbol={favCoin.Symbol}
                 img={favCoin.ImageUrl}
                 key={favCoin.Id}/>
             }) 
         ) : (
-            <p>Please Choose Your Favortie Coins</p>
+            <p className={!coins && "select-fav"}>Please Choose Your Favortie Coins.</p>
         )
         return(
             <div className="container Dashboard">
                 <h1>Dashboard</h1>
-                <div className="favorite-coins">
-                    {chooseFav}
+                <div className={this.state.favorites.length ? "coins-list" : "hidden"}>
+                    <h2>My favorite coins</h2>
+                    <div className={this.state.favorites.length && "favorite-coins"}>
+                        {chooseFav}
+                    </div>
                 </div>
-                <div className="dashboard-container">
-                    {coinList}
+                <div className={this.state.coins ? "coins-list" : "hidden"}>
+                    <h2>Coins List</h2>
+                    <div className="dashboard-container">
+                        {coinList}
+                    </div>
                 </div>
             </div>
         )
