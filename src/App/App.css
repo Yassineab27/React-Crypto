@@ -135,17 +135,16 @@
 
 .dashboard-container,
 .favorite-coins {
-    margin: 2rem 0;
+    margin: 1rem 0;
     display: grid;
     grid-gap: 15px;
-    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     grid-template-columns: repeat(5, 1fr);
     transition: all 0.7s ease;
     padding: 0.5rem 0;
 }
 
 .coins-list h2 {
-    margin: 2rem 0;
+    margin-top: 2rem;
     border-bottom: #f4f4f4 dotted 5px;
     text-shadow: 1px 1px 2px #f4f4f4c2
 }
@@ -159,7 +158,33 @@
 }
 
 .form {
-    margin-top: 2rem;
+    margin-top: 3rem;
+}
+
+.form .input {
+    padding: 0.7rem;
+    width: 15rem;
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 7px;
+    background: #f4f4f4;
+}
+
+.form .input:focus {
+    outline: none;
+    border: none;
+    background: rgb(255, 216, 157);
+    box-shadow: 1px 1px 4px #000000b4;
+}
+
+.form .label {
+    background: #f4f4f4;
+    padding: 0.7rem;
+    border-radius: 7px;
+}
+
+.filtred-list {
+    margin-bottom: 3rem;
 }
 
 .Coin {

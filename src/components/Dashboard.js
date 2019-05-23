@@ -66,12 +66,10 @@ class Dashboard extends Component {
                 favorites: newFavList
             }
         });
-
-        // alert(`${favCoin} was successfully deleted!`);
     };
 
     // ==========================================================================================================
-    // HANDING INPUT
+    // HANDLING INPUT
     // ==========================================================================================================
 
     handleChange = (e) => {
@@ -163,27 +161,28 @@ class Dashboard extends Component {
         return(
             <div className="container Dashboard">
                 <h1>Dashboard</h1>
-                <div className={this.state.coins && "coins-list form"}>
-                    <label className={this.state.coins ? "" : "hidden-label"}
-                    id="search">Search for coins: </label>
-                    <input type="text"
-                    htmlFor="search"
-                    className={this.state.coins ? "" : "hidden-input"}
-                    placeholder="ex: Bitcoin..."
-                    value={this.state.search}
-                    onChange={this.handleChange}/>
-                    <div className="dashboard-container">
-                        {filtred}
-                    </div>
-                </div>
                 <div className={this.state.favorites.length ? "coins-list" : "hidden"}>
                     <h2>My favorite coins</h2>
                     <div className={this.state.favorites.length && "favorite-coins"}>
                         {chooseFav}
                     </div>
                 </div>
+                
                 <div className={this.state.coins && "coins-list"}>
                     <h2 className={this.state.coins ? "" : "hidden-title"}>Coins List</h2>
+                    <div className={this.state.coins && "form"}>
+                        <input type="text"
+                        htmlFor="search"
+                        className={this.state.coins ? "input" : "hidden-input"}
+                        placeholder="ex: Bitcoin..."
+                        value={this.state.search}
+                        onChange={this.handleChange}/>
+                        <label className={this.state.coins ? "label" : "hidden-label"}
+                        id="search"><i className="fas fa-search"></i></label>
+                    </div>
+                    <div className="dashboard-container filtred-list">
+                        {filtred}
+                    </div>
                     <div className="dashboard-container">
                         {coinList}
                     </div>
