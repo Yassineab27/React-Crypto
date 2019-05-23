@@ -152,8 +152,14 @@
 
 .hidden h2,
 .hidden-text,
-.hidden-title {
+.hidden-title,
+.hidden-input,
+.hidden-label {
     display: none;
+}
+
+.form {
+    margin-top: 2rem;
 }
 
 .Coin {

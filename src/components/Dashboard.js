@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../App/App.css";
 import Coin from "./Coin";
 import Favorite from "./Favorite";
+
 const cc = require("cryptocompare");
 
 class Dashboard extends Component {
@@ -9,7 +10,9 @@ class Dashboard extends Component {
         super(props);
         this.state = {
             coins: null,
+            filtredList: [],
             favorites: [],
+            search: ""
         }
     };
 
@@ -24,6 +27,10 @@ class Dashboard extends Component {
             coins: coins,
         })
     };
+
+    // ==========================================================================================================
+    // Adding Coin to fav
+    // ==========================================================================================================
 
     addCoin = (favCoin) => {
         const { coins, favorites } = this.state;
@@ -43,9 +50,12 @@ class Dashboard extends Component {
         this.setState({
             favorites: [...favorites, newCoin]
         });
-        
-        alert(`${newCoin.CoinName} was added to the favorites!`);
     };
+
+    // ==========================================================================================================
+    // Deleting Coin from fav
+    // ==========================================================================================================
+
 
     deleteCoin = (favCoin) => {
         this.setState(prevState => {
@@ -56,10 +66,54 @@ class Dashboard extends Component {
                 favorites: newFavList
             }
         });
+
+        // alert(`${favCoin} was successfully deleted!`);
     };
 
+    // ==========================================================================================================
+    // HANDING INPUT
+    // ==========================================================================================================
+
+    handleChange = (e) => {
+        this.setState({
+            search: e.target.value
+        }, () => this.filterCoins());
+    };
+
+    filterCoins = () => {
+        const { coins, search } = this.state;
+        const filtredCoins = Object.values(coins).slice(0, 100).filter(coin => {
+            return coin.CoinName.toLowerCase().includes(search.toLowerCase())
+        })
+
+        this.setState({
+            filtredList: filtredCoins
+        }, () => {
+            this.clearFilter();
+        });
+    };
+
+    clearFilter = () => {
+        const { search } = this.state;
+        this.setState(() => {
+            if(!search) {
+                return {
+                    filtredList: []
+                }
+            }
+        });
+    }
+    // ==========================================================================================================
+    // Rendering
+    // ==========================================================================================================
+
     render() {
-        const { coins, favorites } = this.state;
+
+        // ==========================================================================================================
+        // Rendering Coins
+        // ==========================================================================================================
+
+        const { coins, favorites, filtredList } = this.state;
         const coinList = coins ? (
             Object.values(coins).slice(0, 100).map(coin => {
                 return <Coin coin={coin.CoinName}
@@ -73,6 +127,23 @@ class Dashboard extends Component {
                 <i className="fas fa-spinner fa-spin"></i>
             </h2>
         )
+
+        // ==========================================================================================================
+        // Rendering Filtred Coins
+        // ==========================================================================================================
+        
+        const filtred = filtredList.slice(0, 100).map(coin => {
+                return <Coin coin={coin.CoinName}
+                symbol={coin.Symbol}
+                img={coin.ImageUrl}
+                add={this.addCoin}
+                key={coin.Id}/>
+            })
+
+        // ==========================================================================================================
+        // Rendering Favorite Coins
+        // ==========================================================================================================
+
         const chooseFav = favorites.length ? (
             favorites.map(favCoin => {
                 return <Favorite coin={favCoin.CoinName}
@@ -84,9 +155,27 @@ class Dashboard extends Component {
         ) : (
             <p className={coins ? "" : "hidden-text"}>Please Choose Your Favortie Coins.</p>
         )
+
+        // ==========================================================================================================
+        // Return
+        // ==========================================================================================================
+
         return(
             <div className="container Dashboard">
                 <h1>Dashboard</h1>
+                <div className={this.state.coins && "coins-list form"}>
+                    <label className={this.state.coins ? "" : "hidden-label"}
+                    id="search">Search for coins: </label>
+                    <input type="text"
+                    htmlFor="search"
+                    className={this.state.coins ? "" : "hidden-input"}
+                    placeholder="ex: Bitcoin..."
+                    value={this.state.search}
+                    onChange={this.handleChange}/>
+                    <div className="dashboard-container">
+                        {filtred}
+                    </div>
+                </div>
                 <div className={this.state.favorites.length ? "coins-list" : "hidden"}>
                     <h2>My favorite coins</h2>
                     <div className={this.state.favorites.length && "favorite-coins"}>
