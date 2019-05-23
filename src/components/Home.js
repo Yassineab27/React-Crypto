@@ -11,7 +11,7 @@ class Home extends Component {
                         <h3>Best Crypto Site Ever</h3>
                         <div className="Select">
                             <p>Track Your Favorite Coins with Ease</p>
-                            <Link to="/dashboard">
+                            <Link to="/coins">
                                 <button><i className="fab fa-bitcoin"></i> Select Coins</button>
                             </Link>
                         </div>

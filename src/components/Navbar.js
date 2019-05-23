@@ -10,7 +10,7 @@ const Nav = () => {
                     <h3>React Crypto</h3>
                 </Link>
                 <ul>
-                    <li><NavLink className="nav-link" activeClassName="active-link" to="/dashboard">Dashboard</NavLink></li>
+                    <li><NavLink className="nav-link" activeClassName="active-link" to="/coins">Coins</NavLink></li>
                     <li><NavLink className="nav-link" activeClassName="active-link" to="/settings">Settings</NavLink></li>
                 </ul>
             </div>

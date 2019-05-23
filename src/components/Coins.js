@@ -5,7 +5,7 @@ import Favorite from "./Favorite";
 
 const cc = require("cryptocompare");
 
-class Dashboard extends Component {
+class Coins extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,6 +27,9 @@ class Dashboard extends Component {
             coins: coins,
         })
     };
+
+
+    
 
     // ==========================================================================================================
     // Adding Coin to fav
@@ -192,4 +195,4 @@ class Dashboard extends Component {
     };
 };
 
-export default Dashboard;
+export default Coins;

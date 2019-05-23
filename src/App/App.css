@@ -237,6 +237,7 @@
 
 .Coin .info-button {
     background: rgba(200, 36, 3, 0.74);
+    text-decoration: none;
 }
 
 @media screen and (max-width: 1125px) {
