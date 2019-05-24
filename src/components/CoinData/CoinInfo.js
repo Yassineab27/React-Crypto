@@ -24,7 +24,6 @@ class CoinInfo extends Component {
             this.setState({
                 coin: coinInfo
             });
-            console.log(this.state.coin["365"].USD.TOSYMBOL)
             console.log(Object.values(this.state.coin)[0])
         }
         catch(err) {
@@ -39,7 +38,7 @@ class CoinInfo extends Component {
 
         const coinPrice = coin ? (
             <React.Fragment>
-                <CoinImg coin={coin[symbol].USD}/>
+                <CoinImg coin={coin[symbol].USD} name={name}/>
                 <CoinPrice coin={coin[symbol].USD}/>
                 <CoinPrice coin={coin[symbol].EUR}/>
             </React.Fragment>
@@ -48,7 +47,7 @@ class CoinInfo extends Component {
         )
 
         return(
-            <div className="Dashboard Coin-dashboard">
+            <div className="Dashboard container CoinInfo">
                 <h1>{name}  (<small>{symbol}</small>)</h1>
                 <div className="Coin-info">
                     { coinPrice }

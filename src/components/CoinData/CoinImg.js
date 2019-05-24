@@ -1,11 +1,13 @@
 import React from "react";
 
 const CoinImg = (props) => {
-    const { TOSYMBOL, PRICE } = props.coin;
+    const { IMAGEURL } = props.coin;
+    const { name } = props;
+
     return(
-        <div className="Coin-price">
-            <h4>{TOSYMBOL}</h4>
-            <h2>{PRICE.toFixed(5)}</h2>
+        <div className="Coin-img">
+            <h2>{name}</h2>
+            <img src={`http://cryptocompare.com/${IMAGEURL}`} alt={name}/>
         </div>
     )
 };

@@ -139,7 +139,6 @@
     display: grid;
     grid-gap: 15px;
     grid-template-columns: repeat(5, 1fr);
-    transition: all 0.7s ease;
     padding: 0.5rem 0;
 }
 
@@ -289,12 +288,12 @@
 }
 
 /* COIN INFO */
-.Coin-info {
+.CoinInfo .Coin-info {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: space-around;
-    grid-gap: 0.5rem;
-    margin-top: 2.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0.7rem;
+    margin-top: 2rem;
 }
 
 .Coin-price {
@@ -304,10 +303,33 @@
     padding: 0.8rem 1.5rem;
     border-radius: 7px;
     box-shadow: 1px 1px 4px #000000ab;
+
 }
 
 .Coin-price h2 {
     font-size: 2rem;
     margin: 1rem 0;
     grid-column: 1 / span 2;
+}
+
+.Coin-price-neg {
+    color: red;
+}
+
+.Coin-price-pos {
+    color: green;
+}
+
+.Coin-img {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #f4f4f4;
+    padding: 0.8rem 1.5rem;
+    border-radius: 7px;
+    box-shadow: 1px 1px 4px #000000ab;
+    grid-row: 1 / span 3;
+}
+
+.Coin-img img {
+    margin: 1rem 0;
 }
