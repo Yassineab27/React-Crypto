@@ -287,3 +287,27 @@
         padding: 0.5rem 0;
     }
 }
+
+/* COIN INFO */
+.Coin-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-around;
+    grid-gap: 0.5rem;
+    margin-top: 2.5rem;
+}
+
+.Coin-price {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: #f4f4f4;
+    padding: 0.8rem 1.5rem;
+    border-radius: 7px;
+    box-shadow: 1px 1px 4px #000000ab;
+}
+
+.Coin-price h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    grid-column: 1 / span 2;
+}

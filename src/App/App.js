@@ -4,7 +4,7 @@ import Nav from '../components/Navbar';
 import Home from "../components/Home";
 import Coins from "../components/Coins";
 import Settings from "../components/Settings";
-import CoinInfo from "../components/CoinInfo";
+import CoinInfo from "../components/CoinData/CoinInfo";
 import "./App.css";
 
 function App() {
