@@ -1,7 +1,12 @@
-const HighChartConfig = () => {
+const HighChartConfig = (history) => {
     return {
         title: {
-          text: "Chart"
+          text: "Historical Prices Chart"
+        },
+
+        xAxis: {
+          type: "linear"
+
         },
 
         yAxis: {
@@ -21,14 +26,11 @@ const HighChartConfig = () => {
             label: {
               connectorAllowed: false
             },
-            pointStart: 2010
+            pointStart: 2009
           }
         },
       
-        series: [{
-          name: 'Installation',
-          data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-        }],
+        series: history,
       
         responsive: {
           rules: [{

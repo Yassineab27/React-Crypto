@@ -7,10 +7,10 @@ import HighChartsTheme from "./HighChartsTheme";
 
 ReactHighcharts.Highcharts.setOptions(HighChartsTheme);
 
-const HighCharts = () => {
+const HighCharts = (props) => {
     return(
         <div className="Highcharts">
-            <ReactHighcharts config={HighChartConfig()}/>
+            <ReactHighcharts config={HighChartConfig(props.history)}/>
         </div>
     )
 };
