@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import CoinPrice from "./CoinPrice";
 import CoinImg from "./CoinImg";
-import CoinHeighest from "./CoinHeighest";
+import CoinHighest from "./CoinHighest";
 import CoinLowest from "./CoinLowest";
+import HighCharts from "./HighCharts";
 import "../../App/App.css";
 
 const cc = require("cryptocompare");
@@ -43,8 +44,9 @@ class CoinInfo extends Component {
                 <CoinImg coin={coin[symbol].USD} name={name}/>
                 <CoinPrice coin={coin[symbol].USD}/>
                 <CoinPrice coin={coin[symbol].EUR}/>
-                <CoinHeighest coin={coin[symbol]}/>
+                <CoinHighest coin={coin[symbol]}/>
                 <CoinLowest coin={coin[symbol]}/>
+                <HighCharts />
             </React.Fragment>
         ) : (
             <h2>Loading</h2>

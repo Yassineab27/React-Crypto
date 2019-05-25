@@ -340,7 +340,7 @@
 }
 
 /*COIN HEIGH & LOW */
-.Coin-Heigh,
+.Coin-High,
 .Coin-Low {
     font-size: 1rem;
     display: grid;
@@ -358,7 +358,7 @@
     margin-bottom: 1rem;
 }
 
-.Coin-Heigh h3 {
+.Coin-High h3 {
     grid-column: 1 / span 2;
     margin-bottom: 1.2rem;
     color: rgb(0, 167, 0);
@@ -372,11 +372,19 @@
     font-weight: bold;
 }
 
-.Coin-Heigh .arrow-heigh {
+.Coin-High .arrow-high {
     color: rgb(0, 167, 0);
 }
 
 .Coin-Low .arrow-low {
     color: rgb(255, 64, 64);
+}
+
+/* HIGHCHARTS */
+.Highcharts {
+    grid-column: 2 / 6;
+    grid-row: 2 / 4;
+    height: 260px;
+    width: 715px;
 }
 
