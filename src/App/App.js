@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Nav from '../components/Navbar';
 import Home from "../components/Home";
 import Coins from "../components/Coins";
-import Settings from "../components/Settings";
 import CoinInfo from "../components/CoinData/CoinInfo";
 import "./App.css";
 
@@ -15,7 +14,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/coins" component={Coins}/>
-          <Route path="/settings" component={Settings}/>
           <Route path="/coins/:name/:symbol" component={CoinInfo}/>
         </Switch>
       </div>
