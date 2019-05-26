@@ -258,6 +258,14 @@
 }
 
 /* COIN INFO */
+.return-to-coins {
+    text-decoration: none;
+    display: inline-block;
+    color: #333;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
 .CoinInfo .Coin-info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

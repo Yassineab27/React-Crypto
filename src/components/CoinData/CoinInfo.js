@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import CoinPrice from "./CoinPrice";
 import CoinImg from "./CoinImg";
 import CoinHighest from "./CoinHighest";
@@ -91,6 +92,7 @@ class CoinInfo extends Component {
 
         return(
             <div className="Dashboard container CoinInfo">
+                <Link className="return-to-coins" to="/coins"><i className="fas fa-undo"></i> Return</Link>
                 <h1>{name}  (<small>{symbol}</small>)</h1>
                 <div className="Coin-info">
                     { coinPrice }
