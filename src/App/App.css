@@ -69,6 +69,12 @@
     padding: 4rem;
 }
 
+@keyframes title {
+    0% {opacity: 0;}
+    60% {opacity: 0;}
+    100% { transform: translateX(1100px); opacity: 1;}
+}
+
 .Welcome h1 {
     font-size: 3.5rem;
     text-align: center;
@@ -89,12 +95,6 @@
     animation: title 1.3s forwards ease;
 }
 
-@keyframes title {
-    0% {opacity: 0;}
-    60% {opacity: 0;}
-    100% { transform: translateX(1100px); opacity: 1;}
-}
-
 .Welcome p {
     font-size: 1.5rem;
     text-align: center;
@@ -102,7 +102,7 @@
     font-style: italic;
     position: relative;
     left: -1100px;
-    animation: title 1.6s forwards ease;
+    animation: title 1.8s forwards ease;
 }
 
 .Select {
@@ -122,7 +122,7 @@
     cursor: pointer;
     position: relative;
     left: -1100px;
-    animation: title 1.9s forwards ease;
+    animation: title 2.1s forwards ease;
 }
 
 .Welcome button:focus {
@@ -257,56 +257,6 @@
     text-decoration: none;
 }
 
-/* RESPONSIVNESS DASHBOARD */
-
-@media screen and (max-width: 1125px) {
-    .dashboard-container,
-    .favorite-coins {
-        margin: 2rem;
-        display: grid;
-        grid-gap: 15px;
-        grid-template-columns: repeat(4, 1fr);
-        transition: all 0.7s ease;
-        padding: 0.5rem 0;
-    }
-}
-
-@media screen and (max-width: 933px) {
-    .dashboard-container,
-    .favorite-coins {
-        margin: 2rem;
-        display: grid;
-        grid-gap: 15px;
-        grid-template-columns: repeat(3, 1fr);
-        transition: all 0.7s ease;
-        padding: 0.5rem 0;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .dashboard-container,
-    .favorite-coins {
-        margin: 2rem;
-        display: grid;
-        grid-gap: 15px;
-        grid-template-columns: repeat(2, 1fr);
-        transition: all 0.7s ease;
-        padding: 0.5rem 0;
-    }
-}
-
-@media screen and (max-width: 470px) {
-    .dashboard-container,
-    .favorite-coins {
-        margin: 2rem;
-        display: grid;
-        grid-gap: 15px;
-        grid-template-columns: 1fr;
-        transition: all 0.7s ease;
-        padding: 0.5rem 0;
-    }
-}
-
 /* COIN INFO */
 .CoinInfo .Coin-info {
     display: grid;
@@ -405,3 +355,203 @@
     width: 715px;
 }
 
+/* RESPONSIVENESS */
+@media screen and (max-width: 1125px) {
+    .dashboard-container,
+    .favorite-coins {
+        margin: 2rem;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(4, 1fr);
+        transition: all 0.7s ease;
+        padding: 0.5rem 0;
+    }
+
+    /* COIN INFO */
+    .CoinInfo .Coin-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 0.7rem;
+        margin: 0.7rem;
+    }
+
+    /* COIN PRICE */
+    .Coin-price {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background: #f4f4f4;
+        padding: 0.8rem 1.5rem;
+        border-radius: 7px;
+        box-shadow: 1px 1px 4px #000000ab;
+
+    }
+
+    .Coin-price h2 {
+        font-size: 2rem;
+        margin: 1rem 0;
+        grid-column: 1 / span 2;
+    }
+    
+    /* COIN IMG */
+    .Coin-img {
+        display: grid;
+        grid-template-columns: 1fr;
+        background: #f4f4f4;
+        padding: 0.8rem 1.5rem;
+        border-radius: 7px;
+        box-shadow: 1px 1px 4px #000000ab;
+        grid-row: 2 / 4;
+    }
+
+    /*COIN HEIGH & LOW */
+    .Coin-High,
+    .Coin-Low {
+        font-size: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row: 2 / 3;
+        justify-content: space-between;
+        background: #f4f4f4;
+        padding: 0.8rem 1.5rem;
+        border-radius: 7px;
+        box-shadow: 1px 1px 4px #000000ab;
+    }
+
+    .Coin-Low {
+        grid-row: 3 / 4;
+    }
+
+    /* HIGHCHARTS */
+    .Highcharts {
+        grid-column: 1 / 4;
+        grid-row: 5 / 6;
+        height: 260px;
+        width: 715px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 933px) {
+    .dashboard-container,
+    .favorite-coins {
+        margin: 2rem;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(3, 1fr);
+        transition: all 0.7s ease;
+        padding: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .CoinInfo .Coin-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 0.7rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* COIN PRICE */
+    .Coin-price {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background: #f4f4f4;
+        padding: 0.8rem 1.5rem;
+        border-radius: 7px;
+        box-shadow: 1px 1px 4px #000000ab;
+    
+    }
+    
+    .Coin-price h2 {
+        font-size: 2rem;
+        margin: 1rem 0;
+        grid-column: 1 / span 2;
+    }
+    
+    /* COIN IMG */
+    .Coin-img {
+        display: grid;
+        grid-template-columns: 1fr;
+        background: #f4f4f4;
+        padding: 0.8rem 1.5rem;
+        border-radius: 7px;
+        box-shadow: 1px 1px 4px #000000ab;
+        grid-row: 1 / span 3;
+    }
+    
+    .Coin-img img {
+        margin: 1rem 0;
+        margin: auto;
+    }
+    
+    /*COIN HEIGH & LOW */
+    .Coin-High,
+    .Coin-Low {
+        font-size: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row: 4 / 5;
+        justify-content: space-between;
+        background: #f4f4f4;
+        padding: 0.8rem 1.5rem;
+        border-radius: 7px;
+        box-shadow: 1px 1px 4px #000000ab;
+    }
+    
+    .Coin-Low {
+        grid-row: 5 / 6;
+        margin-bottom: 1rem;
+    }
+    
+    .Coin-High h3 {
+        grid-column: 1 / span 2;
+        margin-bottom: 1.2rem;
+        color: rgb(0, 167, 0);
+        font-weight: bold;
+    }
+    
+    .Coin-Low h3 {
+        grid-column: 1 / span 2;
+        margin-bottom: 1.2rem;
+        color: rgb(255, 64, 64);
+        font-weight: bold;
+    }
+    
+    .Coin-High .arrow-high {
+        color: rgb(0, 167, 0);
+    }
+    
+    .Coin-Low .arrow-low {
+        color: rgb(255, 64, 64);
+    }
+
+    /* HIGHCHARTS */
+    .Highcharts {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .dashboard-container,
+    .favorite-coins {
+        margin: 2rem;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+        transition: all 0.7s ease;
+        padding: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .dashboard-container,
+    .favorite-coins {
+        margin: 2rem;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: 1fr;
+        transition: all 0.7s ease;
+        padding: 0.5rem 0;
+    }
+}
